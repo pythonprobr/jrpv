@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="ie-edge"/>
+        <title>Quiz - DevPro</title>
+        <link rel="stylesheet" href="/static/base/assets/styles/app.css"/>
+    </head>
+    <body style="height: auto !important;">
+
+        <div class="game-page">
+            <p class="subtitle-quiz">Quiz</p>
+            <p class="subtitle-page">Dev Pro</p>
+
+        <div class="container">
+                
+                <div id="loader"></div>
+
+                <div id="game" class="justify-center flex-column animate-bottom hidden">
+                    
+                    <div class="game-result">
+                        <h2>Você fez {{pontuacao_do_aluno}} pontos e está no</h2>
+                        <h2 class="status-player">{{posicao_do_aluno}}º</h2>
+                        <h2>lugar!</h2>
+                    </div>
+
+                    <br />
+                    
+                    <h3>Ranking</h3>
+                    {% for aluno in primeiros_alunos_da_classificacao %}
+                    <div class="choice-container">
+                        <p class="choice-prefix">{{forloop.counter}}º</p>
+                        <p class="choice-text">{{aluno.aluno__nome}} - {{aluno.pontos__sum}} com pontos</p>
+                    </div>
+                    {% endfor %}
+
+                </div>
+            
+            </div>
+        </div>
+    </body>
+    <script src="/static/base/assets/js/script.js"></script>
+</html>
